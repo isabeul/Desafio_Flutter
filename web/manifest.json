@@ -1,6 +1,6 @@
 {
-    "name": "desafio",
-    "short_name": "desafio",
+    "name": "desafio_flutter",
+    "short_name": "desafio_flutter",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
