@@ -22,29 +22,34 @@ class _MoedaBasePageState extends State<MoedaBasePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.black,
-      appBar: AppBar(
-        title: const Text('Moeda Base'),
-        centerTitle: true,
-        elevation: 0,
         backgroundColor: AppColors.black,
-      ),
-      body: Column(
-        // mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const Center(
-            child: Text('Selecione uma moeda base para as conversões'),
+        appBar: AppBar(
+          title: const Text('Moeda Base'),
+          centerTitle: true,
+          elevation: 0,
+          backgroundColor: AppColors.black,
+        ),
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 28),
+          child: Column(
+            //mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Center(
+                child: RichText(
+                  textAlign: TextAlign.center,
+                  text: const TextSpan(
+                    text: 'Selecione uma moeda base para as conversões \n ',
+                    style: TextStyle(fontSize: 18),
+                  ),
+                ),
+              ),
+              Expanded(
+                child: CoinList(
+                  coinList: coinList,
+                ),
+              ),
+            ],
           ),
-          const SizedBox(
-            height: 20,
-          ),
-          Expanded(
-            child: CoinList(
-              coinList: coinList,
-            ),
-          ),
-        ],
-      ),
-    );
+        ));
   }
 }

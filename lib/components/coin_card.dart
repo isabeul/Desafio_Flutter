@@ -16,12 +16,12 @@ class _CoinCardState extends State<CoinCard> {
     if (widget.value == null) {
       return null;
     }
-    var color = Color.fromARGB(255, 224, 64, 64);
+    var color = const Color.fromARGB(255, 224, 64, 64);
     final value = widget.value ?? 0;
     if (value < 1) {
-      color = Color(0xFF36FF93);
+      color = const Color(0xFF36FF93);
     } else if (value < 5) {
-      color = Color(0xFFD8EC5B);
+      color = const Color(0xFFD8EC5B);
     }
     return Text(
       widget.value.toString(),
@@ -31,16 +31,13 @@ class _CoinCardState extends State<CoinCard> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 30),
-      child: InkWell(
-        onTap: widget.onTap,
-        child: Card(
-          child: ListTile(
-            leading: const Icon(Icons.attach_money_sharp),
-            trailing: buildValue(),
-            title: Text(widget.name),
-          ),
+    return InkWell(
+      onTap: widget.onTap,
+      child: Card(
+        child: ListTile(
+          leading: const Icon(Icons.attach_money_sharp),
+          trailing: buildValue(),
+          title: Text(widget.name),
         ),
       ),
     );

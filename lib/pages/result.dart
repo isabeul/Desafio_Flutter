@@ -26,42 +26,44 @@ class _ResultPageState extends State<ResultPage> {
     return Scaffold(
       backgroundColor: AppColors.black,
       appBar: AppBar(
-        title: const Text('Cotação'),
+        title: const Text('Resultado'),
         centerTitle: true,
         elevation: 0,
         backgroundColor: AppColors.black,
       ),
-      body: Column(
-        // mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Center(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 40),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 28),
+        child: Column(
+          // mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Center(
               child: RichText(
                 textAlign: TextAlign.center,
-                strutStyle: StrutStyle.fromTextStyle(const TextStyle(fontSize: 18)),
                 text: const TextSpan(
-                    text: 'Selecione as moedas a serem cotadas em \n',
-                    children: [
-                      TextSpan(
-                          text: 'Dólar Americano',
-                          style: TextStyle(fontWeight: FontWeight.bold))
-                    ]),
+                  text: 'Confira os valores de compra referentes ao ',
+                  style: TextStyle(fontSize: 18),
+                  children: [
+                    TextSpan(
+                      text: 'Dólar Americano',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    )
+                  ],
+                ),
               ),
             ),
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          const CoinCard(
-            name: "Real",
-            value: 5,
-          ),
-          const CoinCard(
-            name: "Dólar Americano",
-            value: 3,
-          )
-        ],
+            const SizedBox(
+              height: 20,
+            ),
+            const CoinCard(
+              name: "Real",
+              value: 5,
+            ),
+            const CoinCard(
+              name: "Dólar Americano",
+              value: 3,
+            )
+          ],
+        ),
       ),
     );
   }

@@ -32,33 +32,35 @@ class _HomeScreenState extends State<HomeScreen>
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      // mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Expanded(
-          child: PageView(
-            onPageChanged: (index) {
-              _tabController.index = index;
-            },
-            controller: _pageController,
-            children: [
-              MoedaBasePage(
-                  //coinList: coinList,
-                  ),
-              CotacaoPage(
-                   // coinList: coinList,
-                  ),
-              const ResultPage(),
-            ],
+    return Material(
+      child: Column(
+        // mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Expanded(
+            child: PageView(
+              onPageChanged: (index) {
+                _tabController.index = index;
+              },
+              controller: _pageController,
+              children: const [
+                MoedaBasePage(
+                    //coinList: coinList,
+                    ),
+                CotacaoPage(
+                    // coinList: coinList,
+                    ),
+                ResultPage(),
+              ],
+            ),
           ),
-        ),
-        TabPageSelector(
-          controller: _tabController,
-          color: AppColors.gray,
-          indicatorSize: 20,
-          selectedColor: AppColors.blue,
-        )
-      ],
+          TabPageSelector(
+            controller: _tabController,
+            color: AppColors.gray,
+            indicatorSize: 20,
+            selectedColor: AppColors.blue,
+          )
+        ],
+      ),
     );
   }
 }
