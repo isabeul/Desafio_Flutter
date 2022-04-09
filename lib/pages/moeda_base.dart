@@ -4,21 +4,15 @@ import 'package:desafio_flutter/values/colors.dart';
 import 'package:flutter/material.dart';
 
 class MoedaBasePage extends StatefulWidget {
-  const MoedaBasePage({Key? key}) : super(key: key);
+  final Map<String, String> coinList;
+  const MoedaBasePage({Key? key, required this.coinList}) : super(key: key);
 
   @override
   State<MoedaBasePage> createState() => _MoedaBasePageState();
 }
 
 class _MoedaBasePageState extends State<MoedaBasePage> {
-  final coinList = {
-    "BRL": "Real",
-    "USD": "Dólar Americano",
-    "GBP": "Libra Esterlina",
-    "JPY": "Iene",
-    "ARS": "Peso Argentino",
-  };
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,7 +39,7 @@ class _MoedaBasePageState extends State<MoedaBasePage> {
               ),
               Expanded(
                 child: CoinList(
-                  coinList: coinList,
+                  coinList:widget.coinList,
                 ),
               ),
             ],

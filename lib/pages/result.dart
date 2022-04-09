@@ -61,7 +61,23 @@ class _ResultPageState extends State<ResultPage> {
             const CoinCard(
               name: "Dólar Americano",
               value: 3,
-            )
+            ),
+            const Expanded(child: SizedBox.shrink()),
+            Align(
+              alignment: Alignment.bottomRight,
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(
+                  minHeight: 43,
+                  minWidth: 140,
+                ),
+                child: ElevatedButton(
+                  child: const Text('Concluir'),
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(primary: AppColors.blue),
+                ),
+              ),
+            ),
+            const SizedBox(height: 20)
           ],
         ),
       ),

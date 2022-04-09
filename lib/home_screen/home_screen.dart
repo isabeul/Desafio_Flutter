@@ -1,6 +1,7 @@
 import 'package:desafio_flutter/pages/cotacao.dart';
 import 'package:desafio_flutter/pages/moeda_base.dart';
 import 'package:desafio_flutter/pages/result.dart';
+import 'package:desafio_flutter/values/coins_currency.dart';
 import 'package:desafio_flutter/values/colors.dart';
 import 'package:flutter/material.dart';
 
@@ -17,13 +18,15 @@ class _HomeScreenState extends State<HomeScreen>
     initialPage: 0,
   );
   late TabController _tabController;
-  final coinList = {
-    "BRL": "Real",
-    "USD": "Dolar Americano",
-    "GBP": "Libra Esterlina",
-    "JPY": "Iene",
-    "ARS": "Peso Argentino",
-  };
+
+  Map<String, String> get coinList {
+    final list = <String, String>{};
+    for (final currency in CoinCurrency.values) {
+      list[currency.name] = currency.fullName;
+    }
+    return list;
+  }
+
   @override
   void initState() {
     super.initState();
@@ -42,12 +45,12 @@ class _HomeScreenState extends State<HomeScreen>
                 _tabController.index = index;
               },
               controller: _pageController,
-              children: const [
+              children:  [
                 MoedaBasePage(
-                    //coinList: coinList,
-                    ),
+                  coinList: coinList,
+                ),
                 CotacaoPage(
-                    // coinList: coinList,
+                    coinList: coinList,
                     ),
                 ResultPage(),
               ],

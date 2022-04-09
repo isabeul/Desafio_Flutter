@@ -1,3 +1,4 @@
+import 'package:desafio_flutter/core/repositories/coin_api_repository.dart';
 import 'package:flutter/material.dart';
 
 import 'coin_card.dart';
@@ -19,7 +20,11 @@ class _CoinListState extends State<CoinList> {
         final entries = widget.coinList.entries.toList(growable: false);
         return CoinCard(
           name: entries[index].value,
-          
+          onTap: () async {
+            final repo = CoinApiRepository();
+            final result = await repo.last('BRL', [entries[index].key]);
+            print(result.toJson());
+          },
         );
       }),
 

@@ -5,21 +5,14 @@ import 'package:desafio_flutter/values/colors.dart';
 import 'package:flutter/material.dart';
 
 class CotacaoPage extends StatefulWidget {
-  const CotacaoPage({Key? key}) : super(key: key);
+  final Map<String, String> coinList;
+  const CotacaoPage({Key? key, required this.coinList}) : super(key: key);
 
   @override
   State<CotacaoPage> createState() => _CotacaoPageState();
 }
 
 class _CotacaoPageState extends State<CotacaoPage> {
-  final coinList = {
-    "BRL": "Real",
-    "USD": "Dólar Americano",
-    "GBP": "Libra Esterlina",
-    "JPY": "Iene",
-    "ARS": "Peso Argentino",
-  };
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,7 +46,7 @@ class _CotacaoPageState extends State<CotacaoPage> {
               ),
               Expanded(
                 child: CoinList(
-                  coinList: coinList,
+                  coinList: widget.coinList,
                 ),
               ),
               Align(
